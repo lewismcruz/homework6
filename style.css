@@ -1,3 +1,8 @@
+
+/* brought over CSS from previous project
+for reference.
+
+
 body {
   background-image: url('./linen2x.png');
   font-family: 'Open Sans', sans-serif;
@@ -89,17 +94,16 @@ body {
   background-color: darkturquoise;
   color: linen;
   border-radius: 0px 15px 15px 0px;
-  /* float: right; */
-  font-size: 1.5em;
+  float: right;  font-size: 1.5em;
   width: 100%;
   height: 100%;
   text-align: center;
 }
 
-/* media query for screen size to be applied to center text to switch at same time as navbar */
+media query for screen size to be applied to center text to switch at same time as navbar 
 @media (max-width: 768px) {
   .container-fluid {
-    /* removes paddding on either side */
+   removes paddding on either side 
     padding-left: 0;
     padding-right: 0;
   }
@@ -133,3 +137,5 @@ body {
 .shadowPulse {
   animation: shadow-pulse 1s infinite;
 }
+
+*/
