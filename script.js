@@ -90,11 +90,11 @@ $.ajax({
     var city = response.city.name;
     console.log(city);
     var temp = response.list[0].main.temp;
-    console.log("Temperature:" + temp + "°F");
+    console.log("Temperature:" + temp + " °F");
     var humid = response.list[0].main.humidity;
-    console.log("Humidity:" + humid + "%");
+    console.log("Humidity:" + humid + " %");
     var windSpeed = response.list[0].wind.speed;
-    console.log("Windspeed:" + windSpeed + "MPH");
+    console.log("Windspeed:" + windSpeed + " MPH");
 
     //    var uvIndex = response.uvi;
     $(".city").html(city);
