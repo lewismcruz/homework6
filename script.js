@@ -71,13 +71,6 @@ var APIKey = "4e24577c312ef05041659585b53aecfb";
 // API URL to use for 5 day forecast 
 var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=Houston&units=imperial&appid=" + APIKey;
 
-
-// LAT and LON for Houston;
-//var lat = 61.63028;
-//var lon = -149.818054;
-
-//var cityCardQueryURL = "https://api.openweathermap.org/data/2.5/onecall?" + lat + "&" + lon + "&exclude=&appid=" + APIKey;
-
 // Use jQuery to access the AJAX method
 // Make sure jQuery 3.2.1 is referenced in index.html
 $.ajax({
@@ -95,8 +88,58 @@ $.ajax({
     console.log("Humidity:" + humid + " %");
     var windSpeed = response.list[0].wind.speed;
     console.log("Windspeed:" + windSpeed + " MPH");
+    var day1forecastTemp = response.list[1].main.temp;
+    console.log("Temp: " + day1forecastTemp + "°F");
+    var day1forecastHumid = response.list[1].main.humidity;
+    console.log("Humidity: " + day1forecastHumid + "%");
+    
+    var weatherIcon1 = response.list[1].weather[0].icon;
+    console.log("This is the weather icon" + weatherIcon1 + "Here.");
+    
+    var day2forecastTemp = response.list[2].main.temp;
+    
+    var day2forecastHumid = response.list[2].main.humidity;
 
-    //    var uvIndex = response.uvi;
+    var weatherIcon2 = response.list[2].weather[0].icon;
+    console.log("This is the weather icon" + weatherIcon2 + "Here.");
+
+
+    var day3forecastTemp = response.list[3].main.temp;
+    
+    var day3forecastHumid = response.list[3].main.humidity;
+
+    var weatherIcon3 = response.list[3].weather[0].icon;
+    console.log("This is the weather icon" + weatherIcon3 + "Here.");
+
+
+    var day4forecastTemp = response.list[4].main.temp;
+    
+    var day4forecastHumid = response.list[4].main.humidity;
+
+    var weatherIcon4 = response.list[4].weather[0].icon;
+    console.log("This is the weather icon" + weatherIcon4 + "Here.");
+
+
+
+    var day5orecastTemp = response.list[5].main.temp;
+    
+    var day5forecastHumid = response.list[5].main.humidity;
+
+    var weatherIcon5 = response.list[5].weather[0].icon;
+    console.log("This is the weather icon" + weatherIcon5 + "Here.");
+
+
+
+
+
+
+
+
+
+
+
+
+
     $(".city").html(city);
     
      
@@ -136,3 +179,27 @@ $.ajax({
 });
 
 
+// LAT and LON for Houston;
+var lat = 61.63028;
+var lon = -149.818054;
+
+var cityCardQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=&appid=" + APIKey;
+
+$.ajax({
+    url: cityCardQueryURL,
+    method: "GET"
+}).then(function(response){
+    console.log(cityCardQueryURL);
+    console.log(response);
+
+    var uvIndex = response.daily[0].uvi;
+    console.log("UV Index " + uvIndex);
+
+
+
+
+
+
+
+
+});
