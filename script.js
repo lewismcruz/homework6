@@ -17,7 +17,69 @@ Weather Watcher Dashboard JavaScript Code
 
 
 
+/*
+Try to create arrays to for loop through in order to select and go through several cities.
+
+var arrOfcities = ["Houston", "Atlanta", "New Orleans", "Dallas", "Miami", "Austin", "Los Angeles", "Phoenix"];
+for (var i = 0; i < arrOfcities.length; i++) {
+    console.log(arrOfcities[i]);
+}
+console.log("loop end")
+
+
+// Create object property array to use in my for-loop --- need to determine how to get this
+// from the API response data format.
+var arrOfWeatherInfo = [
+    {
+        name: "Houston",
+        list
+        lat:
+        lon:
+     
+    },
+    {
+        name: "Atlanta"
+
+    }
+]
+
+// As we go through the arrays dynamically create new html elements and add to the DOM.
+for (var i = 0; i < arrOfWeatherInfo.length; i++){
+    var cityWeatherObj = arrOfWeatherInfo[i];
+    console.log(cityWeatherObj.name);
+    if (cityWeatherObj.name) {
+        
+        var $body = document.querySelector("body");
+        var $cityWeatherObjEl = document.createElement("div");
+        var $h2 = document.createElement("h2");
+        var $p = createElement("p");
+
+        $h2.textContent = cityWeatherObj.name;
+        $p.textContent = cityWeatherObj.list;
+        
+        $cityWeatherObjEl.appendChild($h2);
+        $cityWeatherObjEl.appendChild($p);
+        $body.appendChild($cityWeatherObjEl);
+    }
+
+  */    
+
+
+ 
+
+
+
+
 //===================== AJAX Queries ======================
+
+
+$(document).ready(function() {
+
+    var targetDiv = document.getElementById("empty-div");
+
+    targetDiv.textContent = "Text entered here!";
+
+
 
 // This key finally worked
 var APIKey = "4e24577c312ef05041659585b53aecfb";
@@ -85,8 +147,57 @@ $.ajax({
 
 // Now to dynamically create and update html page with elements
 // created here with jQuery and appended to DOM.
+// This is where I am now stuck.  I haven't been able to understand how to use
+// jQuery to make DOM updates/changes.
+// I am not understanding how to assign variables and then use those same variables
+// with jQuery DOM methods to then be able to dynamically update my HTML index file.
+
+// If I could at least do that I could then look at refactoring my existing code
+// to use functions to reduce redundant variable assignments and simple cycle through
+// a few arrays to update a changing city name.
 
 
+// Why is nothing being displayed except for the "empty-div"???????
+
+    var targetDiv = document.getElementById("empty-div");
+
+    targetDiv.textContent = "Text entered here!";
+
+    var targetDiv2 = document.getElementsByClassName("main");
+    targetDiv2.textContent = response.city.name;
+
+    var targetDiv3 = document.getElementsByClassName("bluecard");
+
+
+    var targetDiv4 = document.getElementsByClassName("search-bar");
+
+
+    var targetDiv5 = document.getElementsByClassName("cities");
+
+
+
+// Classes to build dashboard layout
+// Append elements using jQuery
+// <div class="search-bar"></div>
+// <div class="bluecard" id="5-day forecast"></div>
+// <div class="cities"></div>
+// <div class="main"></div>
+
+
+
+    /* <header class="jumbotron">
+      <h1 class="display-3">Weather Watcher</h1>
+      <p class="lead">Dashboard</p>
+      <p id="currentDay" class="lead"></p>
+    </header> 
+     */
+
+    /* 
+
+    // ***** Cannot seem to get any jQuery to work except for 1 or 2 lines ***** Why???
+    // ***** I am not calling things correctly.  Not assigning the right items into variables.
+    // ***** So that I can reference them again properly/correctly.
+    
     $(".city").html(city);
     
     var tableRow = $("<tr>");
@@ -104,6 +215,8 @@ $.ajax({
     $(tr).append($tdCity); //, $tdTemperature, $tdHumidity, $tdWindSpeed, $tdUVIndex);
     
     $("").append(tableRow);
+
+    */
  
 });
 
@@ -131,5 +244,7 @@ $.ajax({
     // Need to create html elements here
     // and append with jQuery.
 
+
+});
 
 });
