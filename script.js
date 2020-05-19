@@ -77,7 +77,7 @@ $(document).ready(function() {
 
     var targetDiv = document.getElementById("empty-div");
 
-    targetDiv.textContent = "Text entered here!";
+    targetDiv.textContent = "Text entered here!  This works.";
 
 
 
@@ -95,6 +95,12 @@ $.ajax({
 }).then(function(response){
     console.log(queryURL);
     console.log(response);
+
+    // Would like to use a function here that would iterate
+    // through: weatherIcon1, dayXforecastTemp variables to
+    // use less lines of code -- I just didn't have enough time
+    // to go back and figure out how to do that.
+
 
     var city = response.city.name;
     console.log(city);
@@ -159,9 +165,9 @@ $.ajax({
 
 // Why is nothing being displayed except for the "empty-div"???????
 
-    var targetDiv = document.getElementById("empty-div");
+    //var targetDiv = document.getElementById("empty-div");
 
-    targetDiv.textContent = "Text entered here!";
+    //targetDiv.textContent = "Text entered here!";
 
     var targetDiv2 = document.getElementsByClassName("main");
     targetDiv2.textContent = response.city.name;
@@ -174,6 +180,13 @@ $.ajax({
 
     var targetDiv5 = document.getElementsByClassName("cities");
 
+    for (var i = 0; i < drinkList.length; i++){
+        var  $parentP = document.createElement("p");
+
+    
+        $parentEl.appendChild($parentP);
+        
+    }
 
 
 // Classes to build dashboard layout
