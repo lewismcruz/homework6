@@ -7,45 +7,6 @@ Weather Watcher Dashboard JavaScript Code
 
 // Looked at several API calls to try to implement. Note of different parameters for each.
 
-// URL for single city === http://api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}
-// Main Dashboard card
-// id  --- for city
-// dt --- time of data calc
-// main.temp
-// main.humidity
-// wind.speed
-
-
-// Using One Call API === https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&
-// exclude=hourly,daily&appid={YOUR API KEY}
-
-// ================ Main Dashboard card =================================
-// current.dt --- current time
-// current.temp
-// current.humidity
-// current.wind_speed
-// current.uvi
-
-
-
-// Several city IDs call http://api.openweathermap.org/data/2.5/group?id=524901,703448,2643743&units=metric
-// List out id for each city in the group
-
-// daily.uvi --- for uvindex
-// daily.dt --- time of forecasted data
-// daily.temp.day --- day temperature
-// daily.humidity --- 
-
-
-//======================= Blue 5-Day Forecast cards =========================
-// 
-// daily.dt
-// daily.temp.day
-// daily.weather.icon -- display sun on sunny days etc.
-// daily.humidity
-
-
-
 
 // Classes to build dashboard layout
 // Append elements using jQuery
@@ -54,16 +15,9 @@ Weather Watcher Dashboard JavaScript Code
 // <div class="cities"></div>
 // <div class="main"></div>
 
-// This code will show the main city weather record on the dashboard.
-//var lat = "";
-//var lon = "";
-
-//var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=&appid={YOUR API KEY}" "fa539119e1c76c914dc9c6960ad2613d";
-//var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + 33.441792  &lon=-94.037689&exclude=&appid={YOUR API KEY}"  + lon "fa539119e1c76c914dc9c6960ad2613d";
 
 
-
-// ============ Use for city search bar ======================
+//===================== AJAX Queries ======================
 
 // This key finally worked
 var APIKey = "4e24577c312ef05041659585b53aecfb";
@@ -129,38 +83,13 @@ $.ajax({
     console.log("This is the weather icon" + weatherIcon5 + "Here.");
 
 
-
-
-
-
-
-
-
-
-
+// Now to dynamically create and update html page with elements
+// created here with jQuery and appended to DOM.
 
 
     $(".city").html(city);
     
-     
-
-
-
-
-
-
-    // id  --- for city
-// dt --- time of data calc
-// main.temp
-// main.humidity
-// wind.speed
-    
-    
-   // var day1Forecast = response.forecast.temperature.value  // daily.dt for day 1
-    
-    
     var tableRow = $("<tr>");
-    
     
     //  Create a table row with jQuery
     var $tr = $("<tr>");
@@ -178,8 +107,12 @@ $.ajax({
  
 });
 
-
-// LAT and LON for Houston;
+//================ Second API Call ===========================================================
+// Did a second API call using the One Call API here in order to pull UV Index value
+// not available or found in forecast API.
+// LAT and LON for Houston --- will have to hard code lat and lon for several cities
+// Or create city lat/lon array and for loop through it to generate all calls for cities
+// listed on dashboard.
 var lat = 61.63028;
 var lon = -149.818054;
 
@@ -195,11 +128,8 @@ $.ajax({
     var uvIndex = response.daily[0].uvi;
     console.log("UV Index " + uvIndex);
 
-
-
-
-
-
+    // Need to create html elements here
+    // and append with jQuery.
 
 
 });
